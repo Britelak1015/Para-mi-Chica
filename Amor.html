@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Para ti, mi amor 💖</title>
+  <style>
+    :root {
+      --rosa-suave: #ffe6f0;
+      --rosa-profundo: #d63384;
+      --fondo: #fffafc;
+      --texto: #402b30;
+      --borde: #f5c6d6;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: var(--fondo);
+      color: var(--texto);
+    }
+
+    header {
+      background: linear-gradient(to right, #ffccdd, #ffe6f0);
+      text-align: center;
+      padding: 30px 20px;
+      border-bottom: 3px solid var(--rosa-profundo);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: var(--rosa-profundo);
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.2em;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: var(--rosa-profundo);
+      padding: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .titulo-seccion {
+      text-align: center;
+      font-size: 2em;
+      color: var(--rosa-profundo);
+      margin-bottom: 20px;
+    }
+
+    .carta {
+      background-color: var(--rosa-suave);
+      border-left: 5px solid var(--rosa-profundo);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      font-size: 1.2em;
+    }
+
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .galeria img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+
+    .lista-amor {
+      list-style: none;
+      padding: 0;
+      font-size: 1.2em;
+    }
+
+    .lista-amor li::before {
+      content: "💗 ";
+    }
+
+    .lista-amor li {
+      margin-bottom: 10px;
+    }
+
+    .opcion {
+      background-color: #ffe0ec;
+      border: 2px solid var(--rosa-profundo);
+      border-radius: 15px;
+      padding: 12px 25px;
+      margin: 10px;
+      display: inline-block;
+      cursor: pointer;
+      font-size: 1.3em;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    .opcion:hover {
+      background-color: #f9c7dd;
+      transform: scale(1.05);
+    }
+
+    .pregunta {
+      font-size: 1.4em;
+      margin-bottom: 20px;
+    }
+
+    .resultado {
+      margin-top: 30px;
+      font-size: 1.4em;
+    }
+
+    .tulipanes {
+      font-size: 2em;
+      animation: flotar 2s infinite alternate;
+      margin-top: 20px;
+    }
+
+    @keyframes flotar {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+
+    .boton-final {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--rosa-profundo);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 12px;
+      font-size: 1.1em;
+      transition: background 0.3s ease;
+    }
+
+    .boton-final:hover {
+      background: #b0286b;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 1.1em;
+      color: #888;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bienvenida, mi amor 🌷</h1>
+    <p>Una página solo para ti, hecha con todo mi cariño 💖</p>
+  </header>
+
+  <nav>
+    <a href="#carta">Carta</a>
+    <a href="#fotos">Fotos</a>
+    <a href="#amo">Lo que amo de ti</a>
+    <a href="#juego">Preguntas</a>
+    <a href="#final">Final</a>
+  </nav>
+
+  <section id="carta">
+    <h2 class="titulo-seccion">💌 Carta para ti</h2>
+    <div class="carta">
+      <p>Amor mío,</p>
+      <p>
+        Quise hacerte esta página para demostrarte de una manera diferente cuánto te amo.
+        Eres la persona más hermosa que he conocido, y cada día contigo es una bendición.
+        Gracias por tu ternura, tu risa, tus abrazos, por estar a mi lado.
+      </p>
+      <p>
+        Espero que esta carta digital te saque una sonrisa y te recuerde lo mucho que vales.
+        ¡Eres todo para mí! 💖
+      </p>
+      <p>Con amor, tu Novia</p>
+    </div>
+  </section>
+
+  <section id="fotos">
+    <h2 class="titulo-seccion">📸 Cosas Que me Dijiste Que te Gustan</h2>
+    <div class="galeria">
+      <img src="/img/11908.jpg" alt="Tulipanes">
+      <img src="/img/brazil.avif" alt="Lo que le gusta 1">
+      <img src="/img/bsc.jpg" alt="Lo que le gusta 2">
+      <img src="/img/freenn.jpg" alt="Freen">
+    </div>
+  </section>
+
+  <section id="amo">
+    <h2 class="titulo-seccion">💖 Lo Que Amo de Ti</h2>
+    <ul class="lista-amor">
+      <li>Tu sonrisa que ilumina todo</li>
+      <li>Tu forma ser conmigo</li>
+      <li>que me hagas caso JAJAJA</li>
+      <li>Cuando te emocionas por las pequeñas cosas</li>
+      <li>Porque siempre estás para mí</li>
+      <li>cuando te pones celosa</li>
+    </ul>
+  </section>
+
+  <section id="juego">
+    <h2 class="titulo-seccion">Juego de Emojis 💘</h2>
+    <div class="pregunta" id="pregunta"></div>
+    <div id="opciones"></div>
+    <div class="resultado" id="resultado"></div>
+    <div class="tulipanes">🌷🌷🌷</div>
+  </section>
+
+  <section id="final" style="background-color: #fff0f6; padding: 50px 20px; border-top: 3px dashed #ff8fb2;">
+  <div style="max-width: 700px; margin: auto; background: #ffe4ec; border-radius: 20px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; position: relative;">
+    
+    <div style="font-size: 2.5em; margin-bottom: 15px;">🌸 OBJETIVO 🌸</div>
+    
+    <p style="font-size: 1.3em; line-height: 1.6;">
+      Esta página tiene como objetivo demostrate de una forma diferente mi amor por ti,no es perfecta,
+      pero fue hecha con el corazón lleno de amor solo para ti.Tambien para pedirte disculpas por lo q paso, por hacerte llorar aunq se q esto no ayudara a q esos dias no existan  
+      igual amor lo siento mucho.Gracias por existir, por ser tú, por estar a mi lado.  
+      Eres mi flor favorita, espero te guste aunq es sencilla 🌷💕
+    </p>
+
+    <div class="tulipanes" style="font-size: 2em; margin-top: 25px;">🌷🌷🌷</div>
+
+    <a href="sobre-mi.html" class="boton-final" style="
+      display: inline-block;
+      margin-top: 30px;
+      background-color: #ff6fa4;
+      padding: 15px 30px;
+      color: white;
+      font-size: 1.2em;
+      border-radius: 15px;
+      text-decoration: none;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    ">Ir al examen 💌</a>
+
+    <div style="position: absolute; bottom: -20px; right: -20px; font-size: 2em;">💖</div>
+    <div style="position: absolute; top: -20px; left: -20px; font-size: 2em;">💗</div>
+  </div>
+</section>
+
+
+  <footer>
+    Hecho con 💖 por alguien que te ama más de lo que puedes imaginar.
+  </footer>
+
+  <script>
+    const preguntas = [
+      {
+        texto: "¿Cómo me siento cuando estoy celosa?",
+        opciones: ["😐", "😍", "😡"],
+        correcta: 2
+      },
+      {
+        texto: "¿Cómo me siento cuando no me contestas?",
+        opciones: ["😭", "😂", "🤡"],
+        correcta: 0
+      },
+      {
+        texto: "¿Qué emoji representa lo que siento por ti?",
+        opciones: ["💘", "🧤", "🍕"],
+        correcta: 0
+      },
+      {
+        texto: "¿Qué emoji usaría cuando me abrazas?",
+        opciones: ["🫂", "🐸", "🙃"],
+        correcta: 0
+      },
+      {
+        texto: "¿Qué emoji describe cuando estamos lejos?",
+        opciones: ["😢", "🏄", "😎"],
+        correcta: 0
+      }
+    ];
+
+    let indice = 0;
+    let aciertos = 0;
+
+    function mostrarPregunta() {
+      const pregunta = preguntas[indice];
+      document.getElementById("pregunta").textContent = pregunta.texto;
+      const opcionesDiv = document.getElementById("opciones");
+      opcionesDiv.innerHTML = "";
+      pregunta.opciones.forEach((emoji, i) => {
+        const btn = document.createElement("div");
+        btn.textContent = emoji;
+        btn.className = "opcion";
+        btn.onclick = () => verificarRespuesta(i);
+        opcionesDiv.appendChild(btn);
+      });
+    }
+
+    function verificarRespuesta(seleccionada) {
+      if (seleccionada === preguntas[indice].correcta) {
+        aciertos++;
+      }
+      indice++;
+      if (indice < preguntas.length) {
+        mostrarPregunta();
+      } else {
+        mostrarResultado();
+      }
+    }
+
+    function mostrarResultado() {
+      const resultado = document.getElementById("resultado");
+      resultado.innerHTML = `
+        <p>Respondiste correctamente ${aciertos} de ${preguntas.length} emojis 💖</p>
+        <p>${aciertos >= 4 ? '¡Eres toda una sabia ehh! 🌙✨' : '¡Aún así te amo! Sigue conociéndome más 🥺'}</p>
+      `;
+      document.getElementById("pregunta").style.display = "none";
+      document.getElementById("opciones").style.display = "none";
+    }
+
+    mostrarPregunta();
+  </script>
+
+</body>
+</html>

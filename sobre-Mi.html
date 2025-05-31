@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Conóceme más 💖</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff0f6;
+      color: #4a2c2a;
+      padding: 20px;
+    }
+    h2 {
+      color: #c94f76;
+      text-align: center;
+      background-color: #ffd6e8;
+      border-radius: 12px;
+      padding: 15px;
+      max-width: 700px;
+      margin: 20px auto;
+      box-shadow: 0 0 15px #c94f76aa;
+    }
+    #contenido-previo {
+      max-width: 700px;
+      background-color: #ffe3f0;
+      border-radius: 15px;
+      padding: 25px 30px;
+      margin: 20px auto;
+      box-shadow: 0 0 20px #c94f76cc;
+      text-align: center;
+      font-size: 1.15em;
+      line-height: 1.6em;
+    }
+    .boton {
+      background-color: #c94f76;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      margin: 20px 0;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 8px #a73b6188;
+      transition: background-color 0.3s ease;
+    }
+    .boton:hover {
+      background-color: #a73b61;
+    }
+    .tulipanes {
+      font-size: 2em;
+      animation: flotar 2s infinite alternate;
+      text-align: center;
+      margin-top: 15px;
+    }
+    @keyframes flotar {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+    #examen {
+      max-width: 700px;
+      margin: 30px auto;
+      background-color: #ffe3f0;
+      border-radius: 15px;
+      padding: 30px 25px;
+      box-shadow: 0 0 20px #c94f76cc;
+      display: none;
+    }
+    #examen h2 {
+      font-size: 2.2em;
+      font-style: italic;
+      animation: mover 3s ease-in-out infinite;
+      text-align: center;
+      color: #c94f76;
+      margin-bottom: 25px;
+    }
+    @keyframes mover {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(10px); }
+    }
+    ol {
+      text-align: left;
+      font-size: 1.1em;
+      margin-left: 20px;
+    }
+    ol li {
+      margin-bottom: 15px;
+    }
+    label {
+      cursor: pointer;
+    }
+    #resultado {
+      margin-top: 30px;
+      font-size: 1.3em;
+      background: #ffd6e8;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 15px #c94f76aa;
+      position: relative;
+    }
+    #resultado p, #resultado h3 {
+      margin: 10px 0;
+    }
+    #resultado .tulipanes {
+      margin-top: 20px;
+      font-size: 2.5em;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -40px;
+      animation: flotar 2s infinite alternate;
+    }
+    #resetExamen {
+      background-color: #c94f76;
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      margin: 30px auto 0;
+      display: block;
+      box-shadow: 0 4px 8px #a73b6188;
+      transition: background-color 0.3s ease;
+    }
+    #resetExamen:hover {
+      background-color: #a73b61;
+    }
+#resetExamen {
+  display: none; /* Oculto hasta que sea necesario */
+}
+
+  </style>
+</head>
+<body>
+
+<div id="contenido-previo">
+  <h2>🌙 Cosas que quiero que sepas de mí</h2>
+  <p>Me gustan los chocolates, los tulipanes, y los momentos contigo. Me asustan las iguanas 🦎 y la oscuridad.</p>
+  <p>Me enoja que me ignoren o que no me entiendan. Me hace llorar decepcionar a quienes amo.</p>
+  <p>Uno de mis mejores recuerdos contigo fue cuando hicimos figuritas de papel y cuando usé la iguana como excusa para abrazarte 🥰.</p>
+  <p>Te llamo "Luna" porque eres hermosa en todas tus fases, incluso cuando estás seria o fría.</p>
+  <p>Sueño con que mi mamá algún día acepte a quien amo... y que ese alguien seas tú, siempre tú.</p>
+  <button class="boton" onclick="iniciarExamen()">Estoy lista para el examen 💘</button>
+</div>
+
+<div id="examen">
+  <h2>📋 Examen para ti Amor</h2>
+  <form id="quiz">
+    <ol id="preguntas"></ol>
+    <input type="submit" class="boton" value="Enviar respuestas">
+  </form>
+  <div id="resultado"></div>
+  <button id="resetExamen">Reiniciar examen</button>
+</div>
+
+<script>
+  window.onload = () => {
+  if (localStorage.getItem("examenHecho")) {
+    // Ocultar el contenido previo y el examen
+    document.getElementById("contenido-previo").style.display = "none";
+    document.getElementById("examen").style.display = "block";
+
+    // Mostrar mensaje que ya hiciste el examen dentro del resultado
+    const resultado = document.getElementById("resultado");
+    resultado.innerHTML = `
+      <h2 style="text-align:center;">💬 Ya hiciste el examen, no puedes repetirlo.</h2>
+      <div class="tulipanes" style="text-align:center;">🌷🌷🌷</div>
+    `;
+
+    // Ocultar el formulario y el botón enviar
+    document.getElementById("quiz").style.display = "none";
+
+    // Mostrar el botón de reiniciar
+    document.getElementById("resetExamen").style.display = "block";
+  } else {
+    // Si no has hecho el examen, ocultar el botón reiniciar hasta que se haga
+    document.getElementById("examen").style.display = "none";
+    document.getElementById("resetExamen").style.display = "none";
+  }
+}
+
+  function iniciarExamen() {
+    document.getElementById("contenido-previo").style.display = "none";
+    document.getElementById("examen").style.display = "block";
+  }
+
+  const preguntas = [
+    {
+      texto: "¿Cuál es mi dulce favorito?",
+      opciones: ["Brocoli caramelizado", "Chocolates", "Papas con limón"],
+      correcta: 1
+    },
+    {
+      texto: "¿Qué flor me gusta?",
+      opciones: ["Cactus enamorado", "Tulipanes"],
+      correcta: 1
+    },
+    {
+      texto: "¿Qué animal me asusta?",
+      opciones: ["Una iguana fea con cara de malvada", "Un conejito rosado que baila salsa"],
+      correcta: 0
+    },
+    {
+      texto: "¿Qué me hace llorar?",
+      opciones: ["Que no haya wifi", "Decepcionar a quienes amo", "Ver TikToks de perritos"],
+      correcta: 1
+    },
+    {
+      texto: "¿Qué me enoja?",
+      opciones: ["Que me ignoren", "El sol cuando brilla mucho"],
+      correcta: 0
+    },
+    {
+      texto: "¿Qué apodo especial te puse?",
+      opciones: ["Luna", "Sirena de tierra"],
+      correcta: 0
+    },
+    {
+      texto: "¿Dónde nos conocimos?",
+      opciones: ["Universidad", "En un concierto de Shakira"],
+      correcta: 0
+    },
+    {
+      texto: "¿Cuánto tiempo llevamos juntas actualmente?",
+      opciones: ["3 meses", "1 año y medio"],
+      correcta: 0
+    },
+    {
+      texto: "¿Qué estaba haciendo cuando me empezaste a gustar?",
+      opciones: ["Tenía el cabello suelto", "Estaba peleando con una paloma"],
+      correcta: 0
+    },
+    {
+      texto: "¿Qué actividad hicimos que tomó muchas horas?",
+      opciones: ["Figuritas de papel", "caminar", "Dormir en clase"],
+      correcta: 0
+    },
+    {
+      texto: "¿Qué excusa usé para abrazarte?",
+      opciones: ["Que había una iguana", "Que era parte de un juego de retos"],
+      correcta: 0
+    },
+    {
+      texto: "¿Qué me gusta más: lo fácil o lo difícil?",
+      opciones: ["Lo difícil", "La comida gratis"],
+      correcta: 0
+    },
+    {
+      texto: "¿Cómo eras conmigo al principio?",
+      opciones: ["Fría y enojona", "Como una nube de algodón"],
+      correcta: 0
+    },
+    {
+      texto: "¿Qué sueño tengo respecto a mi mamá?",
+      opciones: ["Que me acepte como soy", "Que me regale un unicornio"],
+      correcta: 0
+    },
+    {
+      texto: "¿Qué significa el apodo 'Luna'?",
+      opciones: ["Que eres hermosa en todas tus fases", "Porque brillas como una lámpara"],
+      correcta: 0
+    }
+  ];
+
+  const preguntasContenedor = document.getElementById("preguntas");
+  preguntas.forEach((pregunta, i) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<p>${pregunta.texto}</p>`;
+    pregunta.opciones.forEach((opcion, j) => {
+      const id = `q${i}_${j}`;
+      li.innerHTML += `
+        <label>
+          <input type="radio" name="q${i}" value="${j}" required>
+          ${opcion}
+        </label><br>`;
+    });
+    preguntasContenedor.appendChild(li);
+  });
+
+  document.getElementById("quiz").addEventListener("submit", function(event) {
+    event.preventDefault();
+    let puntaje = 0;
+    preguntas.forEach((pregunta, i) => {
+      const respuesta = document.querySelector(`input[name=q${i}]:checked`).value;
+      if (parseInt(respuesta) === pregunta.correcta) puntaje++;
+    });
+
+    localStorage.setItem("examenHecho", "true");
+    const total = preguntas.length;
+    const resultado = document.getElementById("resultado");
+    resultado.innerHTML = `
+  <div style="
+    max-width: 600px;
+    margin: 30px auto;
+    background: #fff0f6;
+    border: 3px solid #ffb6d9;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  ">
+    <h3 style="font-size: 1.8em; color: #c94f76;">Obtuviste ${puntaje} de ${total} respuestas correctas</h3>
+    <p style="font-size: 1.3em; color: #5a2b33; margin: 20px 0;">
+      ${
+        puntaje >= 12
+        ? "🎉 ¡Felicidades, mi amor! Me conoces muy bien. Te amo muchísimo. 💖"
+        : "🥺 No pasa nada si no fue perfecto. ¡Sigue conociéndome poco a poco cariño, ! 🌙"
+      }
+    </p>
+    <div style="font-size: 3em; line-height: 1.2;">💐💐💐</div>
+  </div>
+`;
+  });
+
+  // Botón para reiniciar examen
+  document.getElementById("resetExamen").addEventListener("click", () => {
+    localStorage.removeItem("examenHecho");
+    location.reload();
+  });
+</script>
+
+</body>
+</html>
